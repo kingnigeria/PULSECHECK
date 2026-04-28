@@ -1,0 +1,4 @@
+# PulseCheck sample tasks
+collect_metrics
+run_command:hostname
+run_command:whoami
