@@ -1,0 +1,18 @@
+{
+  "worker_id": "worker-1",
+  "manager_host": "127.0.0.1",
+  "handshake_port": 8001,
+  "data_port": 8002,
+  "alert_port": 8003,
+  "heartbeat_interval_seconds": 10,
+  "fernet_key": "02M_AD7g3DfI3QR71Y07peXFo3EJD2lL5j5Im8W4AFU=",
+  "allow_commands": [
+    "hostname",
+    "whoami"
+  ],
+  "alert_thresholds": {
+    "cpu_percent": 85.0,
+    "memory_percent": 90.0,
+    "disk_percent": 95.0
+  }
+}
