@@ -1,6 +1,6 @@
 {
   "worker_id": "worker-1",
-  "manager_host": "127.0.0.1",
+  "manager_host": "192.168.1.100",
   "handshake_port": 8001,
   "data_port": 8002,
   "alert_port": 8003,

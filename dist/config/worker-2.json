@@ -1,5 +1,5 @@
 {
-  "worker_id": "worker-1",
+  "worker_id": "worker-2",
   "manager_host": "192.168.1.100",
   "handshake_port": 8001,
   "data_port": 8002,

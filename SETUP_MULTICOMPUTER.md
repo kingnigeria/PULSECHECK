@@ -150,12 +150,11 @@ You'll see a beautiful real-time dashboard showing:
 
 ---
 
-## ✅ File Changes Made
+## ✅ What Changed
 
-- ✅ `config/manager.json` - Network access enabled, web dashboard added
-- ✅ `config/worker.json` - Updated for network
+- ✅ `config/manager.json` - Network access enabled (`0.0.0.0`), web dashboard added
+- ✅ `config/worker.json` - Updated for network (change IP to yours!)
 - ✅ `config/worker-2.json` - New config for second worker
-- ✅ `pulsecheck/manager.py` - Web dashboard implementation added
 - ✅ Same changes in `dist/config/` for distribution
 
 ---
