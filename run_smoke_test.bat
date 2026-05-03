@@ -6,7 +6,7 @@ call "%PULSECHECK_ROOT%\scripts\resolve_python.bat"
 if errorlevel 1 goto :missing_python
 
 echo Running PulseCheck smoke test...
-"%PULSECHECK_PYTHON%" "%PULSECHECK_ROOT%\smoke_test.py"
+"%PULSECHECK_PYTHON%" "%PULSECHECK_ROOT%\tools\smoke_test.py"
 goto :done
 
 :missing_python

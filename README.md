@@ -1,142 +1,80 @@
-# PulseCheck
+# PulseCheck System Monitor
 
-PulseCheck is a lightweight socket-based remote task manager built from the project documentation in this folder. It uses a Manager/Worker architecture with:
+**Created by:** Somtoo and Ahmad
 
-- TCP handshake authentication
-- TCP task and telemetry channel
-- UDP alert channel
-- Fernet encryption
-- `psutil` system metrics
-- Heartbeat-based timeout detection
+## Project Overview
+PulseCheck is a system monitoring tool we built to track computer performance across a network. The system uses a client-server architecture to gather and display hardware data in real time. A central Manager server listens for incoming connections. Individual Worker scripts run on target machines to collect local hardware metrics including CPU usage and RAM utilization. These workers send data payloads back to the manager. The manager aggregates this information and hosts it on a live web dashboard using Flask. 
 
-## Project Layout
+## Setup and Run Instructions
+We automated the configuration process using batch scripts to simplify deployment. 
 
-- `server.py`: starts the manager process
-- `client.py`: starts the worker process
-- `pulsecheck/`: shared implementation modules
-- `config/`: sample manager and worker configuration
-- `tasks/tasks.txt`: sample tasks sent by the manager
+1. Double-click the `install_pulsecheck.bat` file. This script creates a localized Python virtual environment and installs all necessary dependencies.
+2. Wait for the command prompt window to confirm the installation is complete. 
+3. Double-click the `run_demo.bat` file. This script launches both the backend manager server and the web dashboard interface simultaneously. 
+4. Open a web browser and navigate to `http://localhost:5000` to view the live dashboard.
+5. To test the monitoring capabilities on your own machine, double-click `run_worker.bat` to launch a local client. You will see your system appear on the web dashboard.
 
-## Quick Start
 
-If you want the easiest path on Windows:
 
-1. Double-click `install_pulsecheck.bat`
-2. Double-click `run_manager.bat` on the manager computer
-3. Double-click `run_worker.bat` on the worker computer
 
-Optional helpers:
+## Multi-Machine Network Demonstration
+We also built the system to support real network deployments across multiple physical devices.
 
-- `run_smoke_test.bat`: verifies the system can connect locally
-- `build_exe.bat`: packages the manager and worker into `.exe` files using PyInstaller
+### Manager Machine Configuration
+1. Execute `python setup_demo.py` or `python server.py`.
+2. Keep the web dashboard running.
+3. Verify that the Windows Firewall allows traffic through ports 8001, 8002, 8003, and 5000.
 
-## Environment Setup
+### Worker Machine Configuration (Automated)
+1. Double-click the `toggle_worker_config.bat` file.
+2. Select option [1] to add a network worker.
+3. Input the manager computer's IP address when prompted.
+4. Execute `python client.py --config config\worker.json`.
 
-```powershell
-cd C:\Users\harus\OneDrive\Documents\PULSECHECK
-.\install_pulsecheck.bat
-```
+### Worker Machine Configuration (Manual Reversion)
+1. Double-click the `toggle_worker_config.bat` file.
+2. Select option [1] to revert the configuration back to localhost.
 
-If Python is not already installed on the machine, install Python 3.12 or newer first and make sure it is available on `PATH`.
+### Web Visitor Access
+1. Connect the visitor device to the same Wi-Fi network as the manager machine.
+2. Open a web browser and navigate to `http://MANAGER-IP:5000`.
+3. The device will appear on the dashboard as an active web visitor.
 
-## Running Locally
+## Dashboard Features
+We programmed the web interface to display several distinct categories of connected devices and activities.
 
-Start the manager:
+* **Your Visitor Card**: Displays the specific specifications of the device currently viewing the page.
+* **Live Visitors**: Displays other devices actively viewing the dashboard on the network.
+* **Worker Machines**: Displays the computers actively running the Python PulseCheck client script.
+* **Live Activity**: Displays a real-time stream of authentication events, active tasks, system alerts, and heartbeat data.
 
-Double-click `run_manager.bat`
+## File Directory Map
+We organized the project into several executable scripts and core Python files to separate the server logic from the client data collection. 
 
-or run:
+* **`install_pulsecheck.bat`**: Creates the Python virtual environment and installs the required libraries.
+* **`requirements.txt`**: Lists the specific Python dependencies needed for the environment.
+* **`run_demo.bat`**: Starts the main server and the web interface together for a full system demonstration.
+* **`run_manager.bat`**: Starts only the central manager server for listening to incoming worker data.
+* **`run_worker.bat`**: Launches the client script to begin collecting local system metrics and sending them to the manager.
+* **`setup_demo.py`**: A utility script we wrote to configure the initial network environment and verify port availability.
+* **`server.py`**: The main entry point to start the manager server.
+* **`client.py`**: The main entry point to start a worker node.
+* **`tools/reset_demo.py`**: Resets all configuration files back to their default demo values.
+* **`tools/smoke_test.py`**: Executes a quick local health check to verify core functionality.
+* **`run_smoke_test.bat`**: A batch wrapper to execute the automated smoke tests easily.
+* **`toggle_worker_config.bat`**: Swaps between different worker configuration states to test various network scenarios.
+* **`docs/SETUP_MULTICOMPUTER.md`**: Contains our technical notes for deploying across two distinct computers.
+* **`pulsecheck/manager.py`**: Contains the core logic for the socket manager and the dashboard server.
+* **`pulsecheck/worker.py`**: Contains the hardware polling logic and data transmission protocols for the client.
 
-```powershell
-.\.venv\Scripts\python.exe server.py --config config\manager.json
-```
+## Network Port Configuration
+We assigned specific ports to handle different types of traffic to prevent data collisions.
 
-Start one worker in a second terminal:
+* **8001**: Reserved for the initial TCP handshake between the worker and manager.
+* **8002**: Reserved for continuous TCP data streaming of hardware metrics.
+* **8003**: Reserved for UDP alert transmissions.
+* **5000**: Reserved for the HTTP web dashboard interface.
 
-Double-click `run_worker.bat`
+## Architecture Details
+The backend utilizes Python socket programming to maintain continuous connections between the worker nodes and the manager. The manager processes incoming JSON payloads and stores the current state in memory. The Flask web server reads this memory state and dynamically updates the HTML frontend. We designed it this way to ensure the web interface remains responsive regardless of how many worker nodes are connected or transmitting data.
 
-or run:
-
-```powershell
-.\.venv\Scripts\python.exe client.py --config config\worker.json
-```
-
-Run the quick smoke test:
-
-Double-click `run_smoke_test.bat`
-
-or run:
-
-```powershell
-.\.venv\Scripts\python.exe smoke_test.py
-```
-
-## Sharing With Partners
-
-1. Zip the entire `PULSECHECK` folder.
-2. My partner extracts it anywhere on their Windows machine.
-3. They run `install_pulsecheck.bat`.
-4. They edit `config\worker.json` if the manager IP address changes.
-5. They launch `run_worker.bat`.
-
-For the manager machine, edit `config\manager.json` to include each worker ID and IP in `allowed_workers`.
-
-## Single-Computer Demo
-
-The current sample config is already set up for one computer:
-
-- `config\manager.json` uses `127.0.0.1`
-- `config\worker.json` uses `127.0.0.1`
-
-That means you can test everything locally without changing the configs:
-
-1. Run `install_pulsecheck.bat`
-2. Run `run_manager.bat`
-3. Open a second terminal and run `run_worker.bat`
-
-## Two-Computer Demo
-
-If the manager and worker will run on different computers on the same network:
-
-1. On the manager machine, change `config\manager.json`:
-   - set `host` to `0.0.0.0` or the manager machine's LAN IP
-   - update `allowed_workers` with the worker machine's IP
-2. On the worker machine, change `config\worker.json`:
-   - set `manager_host` to the manager machine's LAN IP
-   - keep a unique `worker_id`
-3. Allow Windows Firewall access for ports `8001`, `8002`, and `8003`
-4. Start the manager first, then start the worker
-
-## Building Executables
-
-If you want standalone `.exe` files:
-
-1. Run `install_pulsecheck.bat`
-2. Run `build_exe.bat`
-3. The generated files will appear in `dist\`
-
-Those executables still need the matching `config` and `tasks` folders beside them unless we later decide to bundle config into the app.
-
-## Tasks
-
-The manager reads `tasks/tasks.txt` and sends supported tasks over the encrypted data channel.
-
-Supported task formats:
-
-- `collect_metrics`
-- `run_command:hostname`
-- `run_command:whoami`
-
-Workers only execute commands listed in `allow_commands` inside `config/worker.json`.
-
-## Default Ports
-
-- Handshake TCP: `8001`
-- Data TCP: `8002`
-- Alert UDP: `8003`
-
-## Notes
-
-- The sample configs are set up for local testing on `127.0.0.1`.
-- To add more workers, copy `config/worker.json`, change the `worker_id`, and add that worker to the manager allowlist.
-- If CPU, memory, or disk usage crosses the configured threshold, the worker sends a UDP alert to the manager.

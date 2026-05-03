@@ -1,6 +1,8 @@
 @echo off
-REM PulseCheck Demo Runner for Windows
-REM Double-click this file to start the demo
+setlocal
+for %%I in ("%~dp0.") do set "PULSECHECK_ROOT=%%~fI"
+call "%PULSECHECK_ROOT%\scripts\resolve_python.bat"
+if errorlevel 1 goto :missing_python
 
 echo.
 echo ============================================================
@@ -10,6 +12,13 @@ echo.
 echo Starting demo setup...
 echo.
 
-python setup_demo.py
+"%PULSECHECK_PYTHON%" "%PULSECHECK_ROOT%\setup_demo.py"
+goto :done
 
+:missing_python
+echo No usable Python runtime with PulseCheck dependencies was found.
+echo Run install_pulsecheck.bat first.
+
+:done
 pause
+endlocal
