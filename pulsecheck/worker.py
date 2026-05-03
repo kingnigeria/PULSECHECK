@@ -43,20 +43,32 @@ class WorkerClient:
         self._receive_loop()
 
     def _authenticate(self) -> dict[str, Any]:
-        with socket.create_connection((self.manager_host, self.handshake_port), timeout=10) as sock:
-            channel = JsonSocket(sock, self.fernet)
-            channel.send(
-                {
-                    "type": "auth",
-                    "worker_id": self.worker_id,
-                    "platform": platform.platform(),
-                }
-            )
-            response = channel.recv()
-            if response.get("status") != "ok":
-                raise RuntimeError(f"Authentication failed: {response}")
-            self.log.info("Authenticated with manager as %s", self.worker_id)
-            return response
+        try:
+            with socket.create_connection((self.manager_host, self.handshake_port), timeout=10) as sock:
+                channel = JsonSocket(sock, self.fernet)
+                channel.send(
+                    {
+                        "type": "auth",
+                        "worker_id": self.worker_id,
+                        "platform": platform.platform(),
+                    }
+                )
+                response = channel.recv()
+                if response.get("status") != "ok":
+                    raise RuntimeError(f"Authentication failed: {response}")
+                self.log.info("Authenticated with manager as %s", self.worker_id)
+                return response
+        except ConnectionRefusedError as exc:
+            raise RuntimeError(
+                f"Could not reach the manager at {self.manager_host}:{self.handshake_port}. "
+                "Make sure the manager is running, the IP address is correct, and the firewall "
+                "allows port 8001."
+            ) from exc
+        except TimeoutError as exc:
+            raise RuntimeError(
+                f"Timed out reaching the manager at {self.manager_host}:{self.handshake_port}. "
+                "Check that both devices are on the same network and that the manager IP is correct."
+            ) from exc
 
     def _open_data_channel(self, token: str) -> None:
         sock = socket.create_connection((self.manager_host, self.data_port), timeout=10)

@@ -1,0 +1,19 @@
+2026-04-30 12:18:11,775 [INFO] pulsecheck.worker: Authenticated with manager as worker-1
+2026-04-30 12:18:11,787 [INFO] pulsecheck.worker: Data channel established to manager
+Traceback (most recent call last):
+  File "C:\Users\harus\OneDrive\Documents\PULSECHECK - Somtoo and Ahmad\client.py", line 5, in <module>
+    main()
+  File "C:\Users\harus\OneDrive\Documents\PULSECHECK - Somtoo and Ahmad\pulsecheck\worker.py", line 199, in main
+    WorkerClient(config).run()
+  File "C:\Users\harus\OneDrive\Documents\PULSECHECK - Somtoo and Ahmad\pulsecheck\worker.py", line 43, in run
+    self._receive_loop()
+  File "C:\Users\harus\OneDrive\Documents\PULSECHECK - Somtoo and Ahmad\pulsecheck\worker.py", line 92, in _receive_loop
+    message = self.channel.recv()
+              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\harus\OneDrive\Documents\PULSECHECK - Somtoo and Ahmad\pulsecheck\protocol.py", line 25, in recv
+    line = self.reader.readline()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out

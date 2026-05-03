@@ -1,0 +1,81 @@
+2026-04-30 12:18:09,782 [INFO] pulsecheck.manager: Web dashboard listening on 0.0.0.0:5000
+2026-04-30 12:18:09,789 [INFO] pulsecheck.manager: Alert listener active on 0.0.0.0:8003
+2026-04-30 12:18:09,789 [INFO] pulsecheck.manager: Handshake server listening on 0.0.0.0:8001
+2026-04-30 12:18:09,789 [INFO] pulsecheck.manager: Data server listening on 0.0.0.0:8002
+2026-04-30 12:18:11,775 [INFO] pulsecheck.manager: Authenticated worker worker-1 from 172.16.59.141
+2026-04-30 12:18:11,787 [INFO] pulsecheck.manager: Worker worker-1 opened data channel from 172.16.59.141
+2026-04-30 12:18:11,787 [INFO] pulsecheck.manager: Sent task collect_metrics to worker-1
+2026-04-30 12:18:12,289 [INFO] pulsecheck.manager: Metrics from worker-1: CPU 26.9% RAM 50.8% Disk 57.6%
+2026-04-30 12:18:16,788 [INFO] pulsecheck.manager: Sent task run_command:hostname to worker-1
+2026-04-30 12:18:16,807 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: Pong
+2026-04-30 12:18:21,787 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:18:21,788 [INFO] pulsecheck.manager: Sent task run_command:whoami to worker-1
+2026-04-30 12:18:21,816 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: pong\harus
+2026-04-30 12:18:26,788 [INFO] pulsecheck.manager: Sent task collect_metrics to worker-1
+2026-04-30 12:18:27,290 [INFO] pulsecheck.manager: Metrics from worker-1: CPU 31.0% RAM 52.0% Disk 57.6%
+2026-04-30 12:18:31,787 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:18:31,789 [INFO] pulsecheck.manager: Sent task run_command:hostname to worker-1
+2026-04-30 12:18:31,802 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: Pong
+2026-04-30 12:18:36,801 [INFO] pulsecheck.manager: Sent task run_command:whoami to worker-1
+2026-04-30 12:18:36,925 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: pong\harus
+2026-04-30 12:18:41,786 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:18:41,802 [INFO] pulsecheck.manager: Sent task collect_metrics to worker-1
+2026-04-30 12:18:42,303 [INFO] pulsecheck.manager: Metrics from worker-1: CPU 13.6% RAM 51.8% Disk 57.6%
+2026-04-30 12:18:46,803 [INFO] pulsecheck.manager: Sent task run_command:hostname to worker-1
+2026-04-30 12:18:46,822 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: Pong
+2026-04-30 12:18:51,786 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:18:51,803 [INFO] pulsecheck.manager: Sent task run_command:whoami to worker-1
+2026-04-30 12:18:51,860 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: pong\harus
+2026-04-30 12:18:56,805 [INFO] pulsecheck.manager: Sent task collect_metrics to worker-1
+2026-04-30 12:18:57,311 [INFO] pulsecheck.manager: Metrics from worker-1: CPU 26.6% RAM 51.5% Disk 57.6%
+2026-04-30 12:19:01,786 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:19:01,809 [INFO] pulsecheck.manager: Sent task run_command:hostname to worker-1
+2026-04-30 12:19:01,859 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: Pong
+2026-04-30 12:19:06,809 [INFO] pulsecheck.manager: Sent task run_command:whoami to worker-1
+2026-04-30 12:19:06,844 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: pong\harus
+2026-04-30 12:19:11,787 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:19:11,810 [INFO] pulsecheck.manager: Sent task collect_metrics to worker-1
+2026-04-30 12:19:12,312 [INFO] pulsecheck.manager: Metrics from worker-1: CPU 14.2% RAM 51.1% Disk 57.6%
+2026-04-30 12:19:16,810 [INFO] pulsecheck.manager: Sent task run_command:hostname to worker-1
+2026-04-30 12:19:16,842 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: Pong
+2026-04-30 12:19:21,787 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:19:21,813 [INFO] pulsecheck.manager: Sent task run_command:whoami to worker-1
+2026-04-30 12:19:21,847 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: pong\harus
+2026-04-30 12:19:26,813 [INFO] pulsecheck.manager: Sent task collect_metrics to worker-1
+2026-04-30 12:19:27,316 [INFO] pulsecheck.manager: Metrics from worker-1: CPU 26.6% RAM 51.2% Disk 57.6%
+2026-04-30 12:19:31,789 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:19:31,815 [INFO] pulsecheck.manager: Sent task run_command:hostname to worker-1
+2026-04-30 12:19:31,841 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: Pong
+2026-04-30 12:19:36,819 [INFO] pulsecheck.manager: Sent task run_command:whoami to worker-1
+2026-04-30 12:19:36,866 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: pong\harus
+2026-04-30 12:19:41,790 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:19:41,823 [INFO] pulsecheck.manager: Sent task collect_metrics to worker-1
+2026-04-30 12:19:42,327 [INFO] pulsecheck.manager: Metrics from worker-1: CPU 33.2% RAM 50.8% Disk 57.6%
+2026-04-30 12:19:46,824 [INFO] pulsecheck.manager: Sent task run_command:hostname to worker-1
+2026-04-30 12:19:46,859 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: Pong
+2026-04-30 12:19:51,790 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:19:51,827 [INFO] pulsecheck.manager: Sent task run_command:whoami to worker-1
+2026-04-30 12:19:51,878 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: pong\harus
+2026-04-30 12:19:56,828 [INFO] pulsecheck.manager: Sent task collect_metrics to worker-1
+2026-04-30 12:19:57,332 [INFO] pulsecheck.manager: Metrics from worker-1: CPU 35.3% RAM 50.7% Disk 57.6%
+2026-04-30 12:20:01,792 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:20:01,832 [INFO] pulsecheck.manager: Sent task run_command:hostname to worker-1
+2026-04-30 12:20:01,859 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: Pong
+2026-04-30 12:20:06,835 [INFO] pulsecheck.manager: Sent task run_command:whoami to worker-1
+2026-04-30 12:20:06,883 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: pong\harus
+2026-04-30 12:20:11,792 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:20:11,838 [INFO] pulsecheck.manager: Sent task collect_metrics to worker-1
+2026-04-30 12:20:12,340 [INFO] pulsecheck.manager: Metrics from worker-1: CPU 23.3% RAM 50.6% Disk 57.6%
+2026-04-30 12:20:16,838 [INFO] pulsecheck.manager: Sent task run_command:hostname to worker-1
+2026-04-30 12:20:16,869 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: Pong
+2026-04-30 12:20:21,792 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:20:21,839 [INFO] pulsecheck.manager: Sent task run_command:whoami to worker-1
+2026-04-30 12:20:21,875 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: pong\harus
+2026-04-30 12:20:26,840 [INFO] pulsecheck.manager: Sent task collect_metrics to worker-1
+2026-04-30 12:20:27,343 [INFO] pulsecheck.manager: Metrics from worker-1: CPU 38.9% RAM 50.2% Disk 57.6%
+2026-04-30 12:20:31,794 [INFO] pulsecheck.manager: Heartbeat from worker-1
+2026-04-30 12:20:31,842 [INFO] pulsecheck.manager: Sent task run_command:hostname to worker-1
+2026-04-30 12:20:31,864 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: Pong
+2026-04-30 12:20:36,844 [INFO] pulsecheck.manager: Sent task run_command:whoami to worker-1
+2026-04-30 12:20:36,872 [INFO] pulsecheck.manager: Task result from worker-1 for run_command: pong\harus
+2026-04-30 12:22:51,773 [WARNING] pulsecheck.manager: Worker worker-1 timed out after heartbeat loss

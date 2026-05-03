@@ -10,11 +10,7 @@
   "tasks_file": "../tasks/tasks.txt",
   "allowed_workers": [
     {
-      "worker_id": "worker-1",
-      "ip": "*"
-    },
-    {
-      "worker_id": "worker-2",
+      "worker_id": "*",
       "ip": "*"
     }
   ]
